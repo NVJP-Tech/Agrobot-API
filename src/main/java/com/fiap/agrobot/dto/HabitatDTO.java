@@ -1,6 +1,6 @@
 package com.fiap.agrobot.dto;
 
-public record EstufaDTO(
+public record HabitatDTO(
         Long id,
         String nome,
         String planta,
