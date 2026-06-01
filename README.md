@@ -90,10 +90,12 @@ A API possui documentação interativa completa. Com o projeto rodando, acesse:
 | Método | Endpoint | Descrição |
 | :--- | :--- | :--- |
 | **GET** | `/api/habitat` | Lista o status de todos os módulos de estufa. |
+| **PUT** |	`/api/habitat/{id}` |	Atualização de parâmetros climáticos e status. |
 | **GET** | `/api/plantas` | Retorna o catálogo de sementes e parâmetros ideais. |
 | **POST** | `/api/cultivos/{pltId}/{habId}/{astId}` | Inicia um novo ciclo de vida botânico. |
 | **POST** | `/api/logs/sensor/{culId}` | Recebe telemetria do IoT e gera alertas de severidade. |
 | **GET** | `/api/logs` | Dashboard de notificações e histórico de alertas. |
+| **DELETE** |	`/api/astronautas/{id}` | Remove um tripulante da base de dados. |
 
 ---
 
