@@ -1,5 +1,6 @@
 package com.fiap.agrobot.controller;
 
+import com.fiap.agrobot.dto.LogDTO;
 import com.fiap.agrobot.model.Log;
 import com.fiap.agrobot.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +17,15 @@ public class LogController {
     private LogService service;
 
     @GetMapping
-    public ResponseEntity<List<Log>> getLogs() {
+    public ResponseEntity<List<LogDTO>> getLogs() {
         return ResponseEntity.ok(service.listarAlertas());
     }
 
-    @PostMapping("/sensor/{habId}")
-    public ResponseEntity<Log> receberDadosSensor(
-            @PathVariable Long habId,
-            @RequestParam String tipo,
-            @RequestParam Double valor) {
-        return ResponseEntity.status(201).body(service.registrarLeitura(habId, tipo, valor));
+    @PostMapping("/sensor/{culId}")
+    public ResponseEntity<LogDTO> receberDadosSensor(
+                                                      @PathVariable Long culId,
+                                                      @RequestParam String tipo,
+                                                      @RequestParam Double valor) {
+        return ResponseEntity.status(201).body(service.registrarLeitura(culId, tipo, valor));
     }
 }

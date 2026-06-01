@@ -18,6 +18,14 @@ public class Log {
     @JoinColumn(name = "log_hab_id")
     private Habitat habitat;
 
+    @ManyToOne
+    @JoinColumn(name = "log_cul_id")
+    private Cultivo cultivo;
+
+    @ManyToOne
+    @JoinColumn(name = "log_plt_id")
+    private Planta planta;
+
     @Column(name = "log_sensor")
     private String sensor; // Ex: "TEMPERATURA"
 
@@ -99,4 +107,10 @@ public class Log {
     public void setDataAlerta(LocalDateTime dataAlerta) {
         this.dataAlerta = dataAlerta;
     }
+
+    public Cultivo getCultivo() { return cultivo; }
+    public void setCultivo(Cultivo cultivo) { this.cultivo = cultivo; }
+
+    public Planta getPlanta() { return planta; }
+    public void setPlanta(Planta planta) { this.planta = planta; }
 }
