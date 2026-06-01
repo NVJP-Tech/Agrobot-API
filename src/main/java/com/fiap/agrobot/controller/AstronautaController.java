@@ -25,4 +25,15 @@ public class AstronautaController {
     public ResponseEntity<AstronautaDTO> cadastrar(@RequestBody Astronauta astronauta) {
         return ResponseEntity.status(201).body(service.salvar(astronauta));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<AstronautaDTO> atualizar(@PathVariable Long id, @RequestBody Astronauta astronauta) {
+        return ResponseEntity.ok(service.atualizar(id, astronauta));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluir(@PathVariable Long id) {
+        service.excluir(id);
+        return ResponseEntity.noContent().build();
+    }
 }
