@@ -2,7 +2,7 @@
 
 > **"O Espaço é a Nova Fronteira"** – Solução inteligente para a gestão de estufas autônomas em ambientes extremos (Marte, Lua e regiões inóspitas da Terra).
 
-Este projeto faz parte da **Global Solution 2026/1** da FIAP para o curso de **Engenharia de Software**. O AgroBot Space utiliza tecnologia de ponta para conectar a economia espacial a dores reais da Terra, como o agronegócio inteligente e a segurança alimentar em áreas remotas.
+Este projeto faz parte da **Global Solution 2026/1** da FIAP para o curso de **Engenharia de Software**. O AgroBot utiliza tecnologia de ponta para conectar a economia espacial a dores reais da Terra, como o agronegócio inteligente e a segurança alimentar em áreas remotas.
 
 ---
 
