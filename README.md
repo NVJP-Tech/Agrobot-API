@@ -1,252 +1,113 @@
-# Agrobot API
+# 👨‍🚀 AgroBot Space - Global Solution 2026/1
 
-API REST desenvolvida em Java com Spring Boot para o projeto Global Solution.
+> **"O Espaço é a Nova Fronteira"** – Solução inteligente para a gestão de estufas autônomas em ambientes extremos (Marte, Lua e regiões inóspitas da Terra).
 
----
-
-## Tecnologias
-
-- Java 17
-- Spring Boot 3.5.0
-- Maven
-- Git/GitHub
+Este projeto faz parte da **Global Solution 2026/1** da FIAP para o curso de **Engenharia de Software**. O AgroBot Space utiliza tecnologia de ponta para conectar a economia espacial a dores reais da Terra, como o agronegócio inteligente e a segurança alimentar em áreas remotas.
 
 ---
 
-## Pré-requisitos
+## 🏗 Arquitetura do Sistema
 
-Antes de começar, instale:
+O sistema foi desenhado seguindo os princípios de **Clean Architecture** e **S.O.L.I.D.**, garantindo escalabilidade entre a telemetria IoT e a interface do usuário.
 
-### 1. Java 17
+<img width="813" height="591" alt="Screenshot 2026-06-01 184431" src="https://github.com/user-attachments/assets/1026958b-8066-4292-ba7b-3988c01280b6" />
 
-Verificar instalação:
 
-```bash
-java -version
-```
-
-Deverá aparecer algo parecido com:
-
-```bash
-java version "17"
-```
-
-### 2. Maven (Opcional)
-
-O projeto já possui Maven Wrapper (`mvnw`), então não é obrigatório instalar Maven globalmente.
-
-### 3. Git
-
-Verificar instalação:
-
-```bash
-git --version
-```
-
-### 4. IntelliJ IDEA
-
-IDE recomendada: IntelliJ IDEA
 
 ---
 
-# Como clonar o projeto
+## 🚀 Tecnologias Utilizadas
 
-## 1. Criar pasta de projetos
+- **Java 17** & **Spring Boot 3.x**
+- **Oracle Database 19c** (Persistência em nuvem FIAP)
+- **Spring Data JPA** (Mapeamento Objeto-Relacional)
+- **Swagger / OpenAPI 3** (Documentação Interativa)
+- **Maven** (Gerenciamento de dependências)
 
-Exemplo:
+---
 
-```bash
-mkdir C:/facul
-```
+## 📋 Funcionalidades Core
 
-## 2. Entrar na pasta
+### 1. Monitoramento de Habitats (Estufas)
+Gestão em tempo real de pressão, temperatura, umidade e níveis de CO2/O2 nos módulos de cultivo.
 
-```bash
-cd C:/facul
-```
+### 2. Catálogo de Culturas (NASA Validated)
+Base de dados com parâmetros biológicos ideais para plantas validadas pela NASA para o espaço (Batata Espacial, Tomate Red Robin, etc).
 
-## 3. Clonar o repositório
+### 3. Gestão de Ciclos de Cultivo
+Casamento dinâmico entre o **Astronauta responsável**, o **Habitat** e a **Planta**, com cálculo automático de previsão de colheita.
 
+### 4. Telemetria e Alertas Inteligentes
+Motor de processamento que recebe dados de sensores IoT. Se um valor ultrapassa o limite da planta, o sistema gera automaticamente um **Log Crítico** para o Dashboard.
+
+---
+
+## 🛠 Como Executar o Projeto
+
+### Pré-requisitos
+- JDK 17
+- Git
+- Acesso ao Oracle Database FIAP
+
+### Instalação
+1. Clone o repositório:
 ```bash
 git clone https://github.com/NVJP-Tech/Agrobot-API.git
 ```
 
-## 4. Entrar no projeto
+### 2. Configuração de Variáveis de Ambiente
 
-```bash
-cd Agrobot-API
-```
+O projeto utiliza variáveis de ambiente para proteger as credenciais de acesso ao banco de dados. Você deve configurá-las no seu sistema ou diretamente na sua IDE (IntelliJ/VS Code).
 
----
+**Variáveis necessárias:**
+- `SPRING_DATASOURCE_URL`: `jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL`
+- `SPRING_DATASOURCE_USERNAME`: `Seu RM (Ex: RM000000)`
+- `SPRING_DATASOURCE_PASSWORD`: `Sua Senha do Banco`
 
-# Como abrir no IntelliJ
+#### No IntelliJ IDEA:
+1. Vá em `Run` > `Edit Configurations...`
+2. Selecione a aplicação `AgrobotApplication`.
+3. No campo **Environment variables**, clique no ícone da pasta e adicione as chaves e valores acima.
+4. Clique em `Apply` e `OK`.
 
-1. Abrir IntelliJ
-2. Clique em `Open`
-3. Selecionar a pasta:
-
-```txt
-C:/facul/Agrobot-API
-```
-
-4. Esperar o Maven baixar as dependências
-
----
-
-# Como rodar o projeto
-
-## Pelo IntelliJ
-
-Rodar a classe:
-
-```txt
-AgrobotApplication
-```
-
-Clique no botão ▶ ao lado do método `main`.
-
----
-
-## Pelo terminal
-
-Na raiz do projeto:
-
-### Git Bash
-
-```bash
+3. Rode a aplicação:
+```code
+Bash
 ./mvnw spring-boot:run
 ```
 
-### CMD/PowerShell
+##📖 Documentação da API (Swagger)
 
-```bash
-mvnw spring-boot:run
+A API possui documentação interativa completa. Com o projeto rodando, acesse:
+```code
+👉 http://localhost:8080/swagger-ui.html
 ```
 
 ---
 
-# Endpoint atual
+## 📖 Principais Endpoints
 
-## Monitoramento das Estufas
-
-### GET
-
-```http
-http://localhost:8080/api/estufas
-```
-
-Resposta esperada:
-
-```json
-[
-  {
-    "id": 1,
-    "nome": "Estufa Alpha",
-    "planta": "Alface Crespa",
-    "temp": 22.5,
-    "umid": 65.0,
-    "status": "OPERACIONAL"
-  }
-]
-```
+| Método | Endpoint | Descrição |
+| :--- | :--- | :--- |
+| **GET** | `/api/habitat` | Lista o status de todos os módulos de estufa. |
+| **GET** | `/api/plantas` | Retorna o catálogo de sementes e parâmetros ideais. |
+| **POST** | `/api/cultivos/{pltId}/{habId}/{astId}` | Inicia um novo ciclo de vida botânico. |
+| **POST** | `/api/logs/sensor/{culId}` | Recebe telemetria do IoT e gera alertas de severidade. |
+| **GET** | `/api/logs` | Dashboard de notificações e histórico de alertas. |
 
 ---
 
-# Fluxo Git do Projeto
+## 👥 Equipe - NVJP Tech 2026
 
-## Branches
-
-| Branch | Função |
-|---|---|
-| main | Produção |
-| homolog | Homologação/testes |
-| develop | Integração |
-| feature/* | Desenvolvimento individual |
+- **Nicolly Ramalho** - IoT & Security (JWT)
+- **Vinicius Wince** - Front-end Mobile & Pitch Storytelling
+- **Jean Matheus** - API Backend & Cloud Architecture
+- **Pedro Gustavo** - Database Modeling & QA
 
 ---
 
-# Como criar uma feature
+## 📄 Regras de Contribuição
 
-## 1. Atualizar develop
-
-```bash
-git checkout develop
-git pull
-```
-
-## 2. Criar branch da feature
-
-```bash
-git checkout -b feature/nome-da-feature
-```
-
-Exemplo:
-
-```bash
-git checkout -b feature/login-jwt
-```
-
----
-
-# Como enviar alterações
-
-## 1. Adicionar arquivos
-
-```bash
-git add .
-```
-
-## 2. Commit
-
-```bash
-git commit -m "feat(api): descrição da feature"
-```
-
-## 3. Push
-
-Primeira vez:
-
-```bash
-git push -u origin feature/nome-da-feature
-```
-
-Próximas vezes:
-
-```bash
-git push
-```
-
----
-
-# Como atualizar sua branch
-
-```bash
-git checkout develop
-git pull
-
-git checkout feature/nome-da-feature
-git merge develop
-```
-
----
-
-# Regras do Projeto
-
-- NÃO commitar direto na `main`
-- NÃO desenvolver direto na `develop`
-- Sempre criar `feature/*`
-- Sempre fazer pull antes de começar
-- Não subir `.idea`, `target` ou arquivos locais
-
----
-
-# Estrutura do Projeto
-
-```txt
-src/main/java/com/fiap/agrobot
-│
-├── controller
-├── dto
-├── model
-├── service
-```
+- Utilize o padrão **Conventional Commits**.
+- Desenvolva sempre em branches `feature/*`.
+- Pull Requests devem ser revisados por pelo menos um par.
