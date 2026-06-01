@@ -99,12 +99,12 @@ A API possui documentação interativa completa. Com o projeto rodando, acesse:
 
 ---
 
-## 👥 Equipe - NVJP Tech 2026
+## 👥 Equipe - NVJP-Tech
 
-- **Nicolly Ramalho** - IoT & Security (JWT)
-- **Vinicius Wince** - Front-end Mobile & Pitch Storytelling
-- **Jean Matheus** - API Backend & Cloud Architecture
-- **Pedro Gustavo** - Database Modeling & QA
+- **Nicolly Ramalho - RM555359** - IoT & Security (JWT)
+- **Vinicius Wince - RM557033** - Front-end Mobile & Pitch Storytelling
+- **Jean Matheus - RM555519** - API Backend & Cloud Architecture
+- **Pedro Gustavo -  RM554415** - Database Modeling & QA
 
 ---
 
