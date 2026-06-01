@@ -1,4 +1,4 @@
-# 👨‍🚀 AgroBot Space - Global Solution 2026/1
+# 👨‍🚀 AgroBot - Global Solution 2026/1
 
 > **"O Espaço é a Nova Fronteira"** – Solução inteligente para a gestão de estufas autônomas em ambientes extremos (Marte, Lua e regiões inóspitas da Terra).
 
