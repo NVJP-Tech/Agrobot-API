@@ -24,4 +24,20 @@ public class AstronautaService {
         Astronauta salvo = repository.save(astronauta);
         return new AstronautaDTO(salvo.getId(), salvo.getNome(), salvo.getFuncao(), salvo.getStatus());
     }
+
+    public void excluir(Long id) {
+        repository.deleteById(id);
+    }
+
+    public AstronautaDTO atualizar(Long id, Astronauta astronauta) {
+        Astronauta existente = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Astronauta não encontrado"));
+
+        existente.setNome(astronauta.getNome());
+        existente.setFuncao(astronauta.getFuncao());
+        existente.setStatus(astronauta.getStatus());
+
+        Astronauta atualizado = repository.save(existente);
+        return new AstronautaDTO(atualizado.getId(), atualizado.getNome(), atualizado.getFuncao(), atualizado.getStatus());
+    }
 }

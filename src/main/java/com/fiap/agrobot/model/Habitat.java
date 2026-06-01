@@ -64,6 +64,22 @@ public class Habitat {
         this.umidade = umidade;
     }
 
+    public Double getPressao() {
+        return pressao;
+    }
+
+    public void setPressao(Double pressao) {
+        this.pressao = pressao;
+    }
+
+    public Double getCo2() {
+        return co2;
+    }
+
+    public void setCo2(Double co2) {
+        this.co2 = co2;
+    }
+
     public Integer getStatus() {
         return status;
     }

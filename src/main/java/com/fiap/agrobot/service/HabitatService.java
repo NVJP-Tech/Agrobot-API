@@ -28,4 +28,33 @@ public class HabitatService {
                 h.getStatus() == 1 ? "OPERACIONAL" : "ALERTA"
         )).toList();
     }
+
+    public HabitatDTO atualizar(Long id, Habitat habitatAtualizado) {
+        Habitat existente = habitatRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Habitat não encontrado"));
+
+        // Atualiza os campos vindos do corpo da requisição
+        existente.setNome(habitatAtualizado.getNome());
+        existente.setStatus(habitatAtualizado.getStatus());
+        existente.setTemperatura(habitatAtualizado.getTemperatura());
+        existente.setUmidade(habitatAtualizado.getUmidade());
+        existente.setPressao(habitatAtualizado.getPressao());
+        existente.setCo2(habitatAtualizado.getCo2());
+
+        Habitat salvo = habitatRepository.save(existente);
+
+        // Retorna o DTO atualizado
+        return new HabitatDTO(
+                salvo.getId(),
+                salvo.getNome(),
+                "Monitoramento Ativo",
+                salvo.getTemperatura(),
+                salvo.getUmidade(),
+                salvo.getStatus() == 1 ? "OPERACIONAL" : "ALERTA"
+        );
+    }
+
+    public void excluir(Long id) {
+        habitatRepository.deleteById(id);
+    }
 }
